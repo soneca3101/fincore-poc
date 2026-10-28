@@ -342,7 +342,7 @@ def _gemini_analysis(snapshot: MarketSnapshot) -> NetworkAnalysis:
     return normalized
 
 
-@app.get("/", include_in_schema=False)
+@app.get("/", include_in_schema=False, response_model=None)
 def index() -> FileResponse | HTMLResponse:
     built_index = FRONTEND_DIST / "index.html"
     if built_index.is_file():
